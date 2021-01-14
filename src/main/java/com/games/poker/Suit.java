@@ -10,22 +10,22 @@ public enum Suit {
     SPADES('C'), CLUBS('D'), DIMONDS('H'), HEARTS('S');
 
     private char symbol;
-    private static final Map<Character, Suit> symbolToEnum = Stream.of(values()).collect(toMap(Suit::getSymbol,e->e));
+    private static final Map<Character, Suit> symbolToEnum = Stream.of(values()).collect(toMap(Suit::getSymbol, e -> e));
 
     Suit(char c) {
         symbol = c;
     }
 
-    public char getSymbol(){
+    public char getSymbol() {
         return symbol;
     }
 
-    public static Suit fromSymbol(char symbol){
+    public static Suit fromSymbol(char symbol) {
         Suit suit = symbolToEnum.get(symbol);
-        if(suit != null){
+        if (suit != null) {
             return suit;
         } else {
-            throw new IllegalArgumentException("Card suit with symbol "+symbol+" doesn't exist");
+            throw new IllegalArgumentException("Card suit with symbol " + symbol + " doesn't exist");
         }
     }
 

@@ -20,8 +20,8 @@ public class Hand implements Comparable<Hand> {
     public static Hand fromString(String hand) {
         Set<Card> cardSet = new HashSet<>();
         String[] cards = hand.split(" ");
-        for(String card: cards){
-            if(!"".equals(card)&&!" ".equals(card)) {
+        for (String card : cards) {
+            if (!"".equals(card) && !" ".equals(card)) {
                 cardSet.add(Card.fromString(card));
             }
         }
@@ -63,14 +63,14 @@ public class Hand implements Comparable<Hand> {
         }
     }
 
-    private Map<Rank,List<Card>> groupCardsByRank(Set<Card> cardSet) {
-        Map<Rank,List<Card>> groupedByRank = new HashMap<>();
-        for(Card card: cardSet){
+    private Map<Rank, List<Card>> groupCardsByRank(Set<Card> cardSet) {
+        Map<Rank, List<Card>> groupedByRank = new HashMap<>();
+        for (Card card : cardSet) {
             List<Card> cards = groupedByRank.get(card.getRank());
-            if(cards==null){
+            if (cards == null) {
                 List<Card> cardList = new ArrayList<>();
                 cardList.add(card);
-                groupedByRank.put(card.getRank(),cardList);
+                groupedByRank.put(card.getRank(), cardList);
             } else {
                 cards.add(card);
             }
@@ -80,15 +80,15 @@ public class Hand implements Comparable<Hand> {
 
     private Set<Rank> getUniqueRanks(Set<Card> cardSet) {
         Set<Rank> rankSet = new HashSet<>();
-        for(Card card: cardSet){
+        for (Card card : cardSet) {
             rankSet.add(card.getRank());
         }
         return rankSet;
     }
 
     private Set<Suit> getUniqueSuits(Set<Card> cardSet) {
-        Set<Suit>  suitSet = new HashSet<>();
-        for(Card card: cardSet){
+        Set<Suit> suitSet = new HashSet<>();
+        for (Card card : cardSet) {
             suitSet.add(card.getSuit());
         }
         return suitSet;
